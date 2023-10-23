@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
         //assigning variables at start
         playerRB = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("Focal Point");
-        
     }
 
     // Update is called once per frame
@@ -30,6 +29,7 @@ public class PlayerController : MonoBehaviour
         float forwardInput = Input.GetAxis("Vertical");
         playerRB.AddForce(focalPoint.transform.forward * playerSpeed *  forwardInput);
 
+        //offsetting Power Up indicator from player position
         powerUpIndicator.transform.position = (transform.position - new Vector3(0, 0.6f, 0));
         
     }
@@ -47,8 +47,6 @@ public class PlayerController : MonoBehaviour
 
             //start the power-up countdown
             StartCoroutine(PowerUpCountdownRoutine());
-
-
         }
     }
 
@@ -72,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //puts a limit on our power up time
+    //method to set a limit on our power up time
     IEnumerator PowerUpCountdownRoutine()
     {
         yield return new WaitForSeconds(7);

@@ -23,9 +23,9 @@ public class Enemy : MonoBehaviour
     {
         //determining direction toward player
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
+        
         //moving enemy toward player
         enemyRB.AddForce(lookDirection * speed);
-
 
         //destroy enemy if they fall off platform
         if (transform.position.y < -20.0f)

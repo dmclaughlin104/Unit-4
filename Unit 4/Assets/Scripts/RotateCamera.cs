@@ -17,9 +17,8 @@ public class RotateCamera : MonoBehaviour
     void Update()
     {
         //rotates camera based on user input
-        //negative input allows for more natural movement
         float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up, -horizontalInput * rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
         
     }
 }
